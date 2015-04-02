@@ -36,6 +36,7 @@ MainWindow::~MainWindow()
     delete m_actionCollection;
     delete m_standardActions;
     delete m_documentLoader;
+    delete m_viewPort;
 }
 
 void MainWindow::createMenuBar()

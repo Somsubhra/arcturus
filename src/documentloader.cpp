@@ -1,5 +1,6 @@
 #include "documentloader.h"
 #include "mainwindow.h"
+#include "viewport.h"
 
 #include <QMessageBox>
 
@@ -70,4 +71,6 @@ void DocumentLoader::loadDocument(QString file)
 
     delete m_document;
     m_document = 0;
+
+    m_mainWindow->viewPort()->renderPages(m_pages);
 }
