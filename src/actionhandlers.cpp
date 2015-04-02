@@ -1,4 +1,5 @@
 #include "actionhandlers.h"
+#include "mainwindow.h"
 
 ActionHandlers::ActionHandlers(MainWindow *mainWindow, QObject *parent)
     : QObject(parent)
@@ -13,7 +14,7 @@ ActionHandlers::~ActionHandlers()
 
 void ActionHandlers::slotExit()
 {
-
+    m_mainWindow->close();
 }
 
 void ActionHandlers::slotOpen()
