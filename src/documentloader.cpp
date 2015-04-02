@@ -8,6 +8,7 @@ DocumentLoader::DocumentLoader(MainWindow* mainWindow, QObject *parent)
     , m_document(0)
 {
     m_mainWindow = mainWindow;
+    m_pages = new QList<QImage>();
 }
 
 DocumentLoader::~DocumentLoader()
@@ -15,10 +16,14 @@ DocumentLoader::~DocumentLoader()
     if(m_document) {
         delete m_document;
     }
+
+    delete m_pages;
 }
 
 void DocumentLoader::loadDocument(QString file)
 {
+    m_pages->clear();
+
     m_document = Poppler::Document::load(file);
 
     if(!m_document) {
@@ -42,4 +47,27 @@ void DocumentLoader::loadDocument(QString file)
 
         return;
     }
+
+    int numberOfPages = m_document->numPages();
+
+    for(int pageNumber = 0; pageNumber < numberOfPages; pageNumber++) {
+        Poppler::Page* pdfPage = m_document->page(pageNumber);
+
+        if(pdfPage == 0) {
+            continue;
+        }
+
+        QImage image = pdfPage->renderToImage();
+
+        if(image.isNull()) {
+            continue;
+        }
+
+        m_pages->append(image);
+
+        delete pdfPage;
+    }
+
+    delete m_document;
+    m_document = 0;
 }

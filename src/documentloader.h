@@ -22,6 +22,7 @@ public slots:
 private:
     MainWindow* m_mainWindow;
     Poppler::Document* m_document;
+    QList<QImage>* m_pages;
 };
 
 #endif // DOCUMENTLOADER_H
