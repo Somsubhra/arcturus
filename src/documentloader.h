@@ -13,11 +13,10 @@ public:
     explicit DocumentLoader(MainWindow* mainWindow, QObject *parent = 0);
     ~DocumentLoader();
 
-    void loadDocument(QString file);
-
 signals:
 
 public slots:
+    void loadDocument(QString file);
 
 private:
     MainWindow* m_mainWindow;

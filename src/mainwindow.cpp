@@ -2,8 +2,10 @@
 #include "actioncollection.h"
 #include "standardactions.h"
 #include "documentloader.h"
+#include "viewport.h"
 
 #include <QMenuBar>
+#include <QGridLayout>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -18,6 +20,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     createMenuBar();
 
     m_documentLoader = new DocumentLoader(this, this);
+
+    QWidget* mainWidget = new QWidget(this);
+    QGridLayout* mainLayout = new QGridLayout(mainWidget);
+
+    m_viewPort = new ViewPort(this, mainWidget);
+    mainLayout->addWidget(m_viewPort, 0, 0);
+
+    mainWidget->setLayout(mainLayout);
+    this->setCentralWidget(mainWidget);
 }
 
 MainWindow::~MainWindow()

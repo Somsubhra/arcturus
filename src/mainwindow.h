@@ -2,9 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+
 class ActionCollection;
 class StandardActions;
 class DocumentLoader;
+class ViewPort;
 
 class MainWindow : public QMainWindow
 {
@@ -28,6 +30,7 @@ private:
     ActionCollection* m_actionCollection;
     StandardActions* m_standardActions;
     DocumentLoader* m_documentLoader;
+    ViewPort* m_viewPort;
 };
 
 #endif // MAINWINDOW_H
