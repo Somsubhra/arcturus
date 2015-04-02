@@ -19,6 +19,8 @@ public:
 
     DocumentLoader* documentLoader();
 
+    ViewPort* viewPort();
+
 private:
     void createMenuBar();
 

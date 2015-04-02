@@ -60,3 +60,8 @@ DocumentLoader* MainWindow::documentLoader()
 {
     return m_documentLoader;
 }
+
+ViewPort* MainWindow::viewPort()
+{
+    return m_viewPort;
+}
