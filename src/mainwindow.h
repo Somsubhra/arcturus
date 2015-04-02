@@ -4,6 +4,7 @@
 #include <QMainWindow>
 class ActionCollection;
 class StandardActions;
+class DocumentLoader;
 
 class MainWindow : public QMainWindow
 {
@@ -13,6 +14,8 @@ public:
     ~MainWindow();
 
     ActionCollection* actionCollection();
+
+    DocumentLoader* documentLoader();
 
 private:
     void createMenuBar();
@@ -24,6 +27,7 @@ public slots:
 private:
     ActionCollection* m_actionCollection;
     StandardActions* m_standardActions;
+    DocumentLoader* m_documentLoader;
 };
 
 #endif // MAINWINDOW_H

@@ -7,10 +7,12 @@ SOURCES += \
     src/mainwindow.cpp \
     src/actioncollection.cpp \
     src/standardactions.cpp \
-    src/actionhandlers.cpp
+    src/actionhandlers.cpp \
+    src/documentloader.cpp
 
 HEADERS += \
     src/mainwindow.h \
     src/actioncollection.h \
     src/standardactions.h \
-    src/actionhandlers.h
+    src/actionhandlers.h \
+    src/documentloader.h

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "actioncollection.h"
 #include "standardactions.h"
+#include "documentloader.h"
 
 #include <QMenuBar>
 
@@ -15,12 +16,15 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     m_standardActions->createStandardActions();
 
     createMenuBar();
+
+    m_documentLoader = new DocumentLoader(this, this);
 }
 
 MainWindow::~MainWindow()
 {
     delete m_actionCollection;
     delete m_standardActions;
+    delete m_documentLoader;
 }
 
 void MainWindow::createMenuBar()
@@ -39,4 +43,9 @@ void MainWindow::createMenuBar()
 ActionCollection* MainWindow::actionCollection()
 {
     return m_actionCollection;
+}
+
+DocumentLoader* MainWindow::documentLoader()
+{
+    return m_documentLoader;
 }
