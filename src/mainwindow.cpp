@@ -29,6 +29,11 @@ void MainWindow::createMenuBar()
     fileMenu->addAction(m_actionCollection->action("open"));
     fileMenu->addSeparator();
     fileMenu->addAction(m_actionCollection->action("exit"));
+
+    QMenu* helpMenu = this->menuBar()->addMenu(tr("Help"));
+    helpMenu->addAction(m_actionCollection->action("help"));
+    helpMenu->addSeparator();
+    helpMenu->addAction(m_actionCollection->action("about"));
 }
 
 ActionCollection* MainWindow::actionCollection()

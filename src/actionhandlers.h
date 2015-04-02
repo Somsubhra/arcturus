@@ -18,6 +18,9 @@ public slots:
     void slotExit();
     void slotOpen();
 
+    void slotHelp();
+    void slotAbout();
+
 private:
     MainWindow* m_mainWindow;
 };

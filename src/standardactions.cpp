@@ -31,4 +31,14 @@ void StandardActions::createStandardActions()
     openAction->setShortcut(QKeySequence("Ctrl+O"));
     m_mainWindow->actionCollection()->addAction("open", openAction);
     connect(openAction, SIGNAL(triggered()), m_actionHandlers, SLOT(slotOpen()));
+
+    QAction* helpAction = new QAction(m_mainWindow->style()->standardIcon(QStyle::SP_DialogHelpButton),
+                                      tr("Help"), m_mainWindow);
+    m_mainWindow->actionCollection()->addAction("help", helpAction);
+    connect(helpAction, SIGNAL(triggered()), m_actionHandlers, SLOT(slotHelp()));
+
+    QAction* aboutAction = new QAction(tr("About"), m_mainWindow);
+    m_mainWindow->actionCollection()->addAction("about", aboutAction);
+    connect(aboutAction, SIGNAL(triggered()), m_actionHandlers, SLOT(slotAbout()));
+
 }

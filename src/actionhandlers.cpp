@@ -21,3 +21,13 @@ void ActionHandlers::slotOpen()
 {
 
 }
+
+void ActionHandlers::slotHelp()
+{
+
+}
+
+void ActionHandlers::slotAbout()
+{
+
+}
