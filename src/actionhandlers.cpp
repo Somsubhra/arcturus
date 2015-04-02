@@ -1,5 +1,6 @@
 #include "actionhandlers.h"
 #include "mainwindow.h"
+#include "documentloader.h"
 
 #include <QFileDialog>
 #include <QStandardPaths>
@@ -29,6 +30,8 @@ void ActionHandlers::slotOpen()
                                                     tr("Open Document"),
                                                     documentDir,
                                                     filter);
+
+    m_mainWindow->documentLoader()->loadDocument(file);
 }
 
 void ActionHandlers::slotHelp()
